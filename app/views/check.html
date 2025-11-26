@@ -37,7 +37,7 @@
               <p class="govuk-body">{{ data['whereDestination'] }}</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> destination</span></a>
+              <a class="govuk-link" href="destination">Change<span class="govuk-visually-hidden"> destination</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -48,7 +48,7 @@
               <p class="govuk-body">{{ data['spaceName'] }}</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> full name</span></a>
+              <a class="govuk-link" href="name">Change<span class="govuk-visually-hidden"> full name</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -63,19 +63,26 @@
                 {% else %}
                 <br/>{{ data['addressLine2'] }}
                 {% endif %}
-                
-                <br/>{{ data['addressTown'] }}
-                
-                {% if data['addressCounty'] == "" %}
+
+                {% if data['addressLine3'] == "" %}
                 {% else %}
-                <br/>{{ data['addressCounty'] }}
+                <br/>{{ data['addressLine3'] }}
                 {% endif %}
                 
-                <br/>{{ data['addressPostcode'] }}
+                {% if data['addressLine4'] == "" %}
+                {% else %}
+                <br/>{{ data['addressLine4'] }}
+                {% endif %}
+                
+                {% if data['addressLine5'] == "" %}
+                {% else %}
+                <br/>{{ data['addressLine5'] }}
+                {% endif %}
+                
               </p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+              <a class="govuk-link" href="address">Change<span class="govuk-visually-hidden"> address</span></a>
             </dd>
           </div>
         </dl>

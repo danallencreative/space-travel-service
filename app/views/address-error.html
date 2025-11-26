@@ -26,6 +26,18 @@
 
       <form class="form" action="/space-address" method="post">
 
+      {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+      {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+      {
+      text: "Enter your address",
+      href: "#space-name"
+      }
+      ]
+      }) }}
+
         {% from "govuk/components/input/macro.njk" import govukInput %}
         {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
@@ -43,7 +55,11 @@
     },
     id: "address-line-1",
     name: "addressLine1",
-    autocomplete: "address-line1"
+    value: data['addressLine1'],
+    autocomplete: "address-line1",
+    errorMessage: {
+      text: "Enter your address"
+      }
   }) }}
 
   {{ govukInput({
@@ -52,36 +68,35 @@
     },
     id: "address-line-2",
     name: "addressLine2",
+    value: data['addressLine2'],
     autocomplete: "address-line2"
   }) }}
 
   {{ govukInput({
     label: {
-      text: "Town or city"
+      text: "Address line 3 (optional)"
     },
-    classes: "govuk-!-width-two-thirds",
-    id: "address-town",
-    name: "addressTown",
-    autocomplete: "address-level2"
+    id: "address-line-3",
+    name: "addressLine3",
+    value: data['addressLine3']
   }) }}
 
   {{ govukInput({
     label: {
-      text: "County (optional)"
+      text: "Address line 4 (optional)"
     },
-    classes: "govuk-!-width-two-thirds",
-    id: "address-county",
-    name: "addressCounty"
+    id: "address-line-4",
+    name: "addressLine4",
+    value: data['addressLine4']
   }) }}
 
   {{ govukInput({
     label: {
-      text: "Postcode"
+      text: "Address line 5 (optional)"
     },
-    classes: "govuk-input--width-10",
-    id: "address-postcode",
-    name: "addressPostcode",
-    autocomplete: "postal-code"
+    id: "address-line-5",
+    name: "addressLine5",
+    value: data['addressLine5']
   }) }}
 
 {% endcall %}
