@@ -13,10 +13,10 @@ const router = govukPrototypeKit.requests.setupRouter()
 router.post('/where-destination', function(request, response) {
 
 	const whereDest = request.session.data['whereDestination']
-	if (whereDest == "moon"){
+	if (whereDest == "The Moon"){
 		response.redirect("/name")
 	    } 
-        else if (whereDest == "mars"){
+        else if (whereDest == "Mars"){
 		response.redirect("/name")
 	    }else {
 		response.redirect("/destination-error")
@@ -47,21 +47,5 @@ router.post('/space-address', function(request, response) {
 	}
 	})
 
-router.post('/space-address', function(request, response) {
-	const spcTown = request.session.data['addressTown']
-	if (spcTown.trim().length > 0){
-		response.redirect("/check")
-	    } else {
-		response.redirect("/address-error")
-	}
-	})
 
-router.post('/space-address', function(request, response) {
-		const spcCode = request.session.data['addressPostcode']
-		if (spcCode.trim().length > 0){
-			response.redirect("/check")
-			} else {
-			response.redirect("/address-error")
-		}
-		})
 

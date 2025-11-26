@@ -29,6 +29,7 @@
 
       {{ govukRadios({
       name: "whereDestination",
+      value: data['whereDestination'],
       fieldset: {
       legend: {
       text: "What destination are you going to?",
@@ -38,11 +39,11 @@
       },
       items: [
       {
-      value: "moon",
-      text: "The moon"
+      value: "The Moon",
+      text: "The Moon"
       },
       {
-      value: "mars",
+      value: "Mars",
       text: "Mars"
       }
       ]
